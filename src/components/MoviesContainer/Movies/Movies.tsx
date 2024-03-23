@@ -7,7 +7,7 @@ import {Pagination} from "@mui/material";
 
 interface IProps {
     movies: IMovie[],
-    page:number,
+    page:string,
     setQuery: SetURLSearchParams
 }
 

@@ -4,9 +4,10 @@ import {AxiosError} from "axios";
 import {genresService, infoService, movieService, searchService} from "../../services";
 
 
+
 interface IState {
     movie: IMovie[],
-    page: number,
+    page:number,
     genres: IGenres[],
     info: IInfo | null,
     themeSwitch: boolean,
@@ -15,7 +16,7 @@ interface IState {
 
 const initialState: IState = {
     movie: [],
-    page: 1 ,
+    page:1,
     genres: [],
     info: null,
     themeSwitch: false,

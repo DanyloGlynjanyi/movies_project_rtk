@@ -17,10 +17,12 @@ const MoviesPage = () => {
 
 
     useEffect(() => {
-            movieService.getAll(page).then(({data:{results}}) => setMovies(results));
+
+        movieService.getAll(page).then(({data:{results}}) => setMovies(results));
     }, [page]);
 
    
+    // @ts-ignore
     return (
         <div>
             <Movies page={page} movies={movies} setQuery={setQuery}/>
