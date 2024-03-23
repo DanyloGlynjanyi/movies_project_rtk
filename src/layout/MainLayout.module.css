@@ -1,0 +1,11 @@
+.wrap{
+    max-width: 1130px;
+    /*width: 1100px;*/
+}
+
+.dark {
+    background-color: #343434;
+}
+.light{
+    background-color: #fdfdfd;
+}
