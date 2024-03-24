@@ -1,17 +1,17 @@
 import {useForm} from "react-hook-form";
 import {useState} from "react";
 
+import {ISearchWord} from "../../../interfaces";
 import {SearchContainer} from "../SearchContainer";
 
 import css from "./SearchForm.module.css";
-import {ISearchWord} from "../../../interfaces";
-import {Autocomplete, TextField} from "@mui/material";
-import Box from "@mui/system/Box";
+import {Box, TextField} from "@mui/material";
+
 
 
 const SearchForm = () => {
-    const {handleSubmit, reset, register} = useForm<ISearchWord>()
-    const [word, setWord] = useState<string>('')
+    const {handleSubmit, reset, register} = useForm()
+    const [word, setWord] = useState<string>()
 
     const search = (query: ISearchWord) => {
         setWord(query.word)
@@ -35,8 +35,10 @@ const SearchForm = () => {
             </form>
             <SearchContainer word={word}/>
         </div>
+
     );
 };
 
 export {SearchForm};
+
 

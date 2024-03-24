@@ -1,8 +1,10 @@
 import {NavLink} from "react-router-dom";
 
-import {ThemSwicher} from "../ThemSwicher";
+
+
 
 import css from './Header.module.css'
+import {ThemeSwitcher} from "../ThemeSwitcher";
 const Header = () => {
     return (
         <div className={css.Header}>
@@ -13,7 +15,7 @@ const Header = () => {
                 <NavLink to={'/search'}>Search</NavLink>
             </div>
 
-            <ThemSwicher/>
+            <ThemeSwitcher/>
             <div ><img src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png" alt="user" className={css.Image}/></div>
 
 

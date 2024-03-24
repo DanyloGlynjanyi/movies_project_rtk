@@ -7,9 +7,8 @@ import {useAppDispatch} from "../../../hooks";
 import {themeActions} from "../../../redux/slices/themeSlice";
 
 
-const ThemSwicher = () => {
+const ThemeSwitcher = () => {
     const dispatch = useAppDispatch();
-    // @ts-ignore
     let saveLocal = JSON.parse(localStorage.getItem('theme')) || false
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -42,4 +41,4 @@ const ThemSwicher = () => {
     );
 };
 
-export {ThemSwicher};
+export {ThemeSwitcher};

@@ -1,13 +1,15 @@
-.genres_wrap {
+.genres_wrap{
     display: flex;
     flex-wrap: wrap;
     max-width: 1140px;
-    min-height: 41px;
+    min-height:41px ;
     align-content: center;
     margin-bottom: 7px;
-    margin-top: 6px;
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards;
+    margin-top:6px;
+    opacity: 0; /* Початкова прозорість - елемент буде невидимим */
+    animation: fadeIn 1s ease-in-out forwards; /* Встановлюємо анімацію fadeIn */
+
+    /* Додаткові стилі для компоненти, якщо потрібно */
 }
 
 @keyframes fadeIn {

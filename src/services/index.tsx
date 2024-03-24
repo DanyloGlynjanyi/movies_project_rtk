@@ -1,5 +1,0 @@
-export * from './axiosService'
-export * from './genresService'
-export * from './infoService'
-export * from './movieService'
-export * from './searchService'

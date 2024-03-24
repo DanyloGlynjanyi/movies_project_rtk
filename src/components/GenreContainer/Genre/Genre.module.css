@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 
-.genre_button{
-
+.genre_button {
     font-family: 'Oswald', sans-serif;
     display: inline-block;
     box-sizing: border-box;
@@ -9,13 +8,13 @@
     margin: 0 5px 5px 0;
     outline: none;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     height: 36px;
     line-height: 36px;
-    color: #ffff;
-    background-color: #4CAF50;
+    color: #fff;
+    background-color: darkmagenta;
     position: relative;
-    overflow:hidden;
+    overflow: hidden;
     vertical-align: top;
     cursor: pointer;
     user-select: none;
@@ -26,27 +25,28 @@
     text-align: center;
 }
 
-.genre_button:hover{
+.genre_button:hover {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.6), 0 1px 3px 1px rgba(0, 0, 0, 0.8);
     background-color: rgba(0, 0, 0, 0.3);
-
 }
-.genre_button:active{
+
+.genre_button:active {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5), 0 1px 3px 1px rgba(0, 0, 0, 0.7);
     background-color: rgba(0, 0, 0, 0.2) !important;
-    /*color: #6c0303;*/
 }
 
-
-
-.genre_button:focus-visible{
+.genre_button:focus-visible {
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.18);
 }
-.genre_button_div{
+
+.genre_button_div {
     display: flex;
     justify-content: space-around;
 }
 
-
-
-
+/* Updated colors */
+.genre_button:hover,
+.genre_button:active {
+    color: #fff;
+    background-color: black;
+}

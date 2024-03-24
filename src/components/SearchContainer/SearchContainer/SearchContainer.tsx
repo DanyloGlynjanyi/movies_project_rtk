@@ -1,11 +1,10 @@
 import {useSearchParams} from "react-router-dom";
-import React, {FC, useEffect} from "react";
+import {FC, useEffect} from "react";
 
 
-
+import {Movies} from "../../MoviesContainer/Movies";
 import {useAppDispatch, useAppSelector} from "../../../hooks";
 import {movieActions} from "../../../redux";
-import {Movies} from "../../MoviesContainer";
 
 
 interface IProps {

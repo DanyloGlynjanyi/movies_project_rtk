@@ -1,8 +1,8 @@
 import {useEffect} from "react";
 import {useParams, useSearchParams} from "react-router-dom";
+import {Movies} from "../MoviesContainer/Movies";
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {movieActions} from "../../redux";
-import {Movies} from "../MoviesContainer";
 
 const GenreLists = () => {
     const {id: with_genres} = useParams<string>()
@@ -19,8 +19,6 @@ const GenreLists = () => {
     :
         dispatch(movieActions.getAll({page}))
     }, [page, with_genres,dispatch]);
-
-
 
 
     return (

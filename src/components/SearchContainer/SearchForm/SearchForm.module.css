@@ -2,10 +2,12 @@
 
 
 .button {
+    /*width: 300px;*/
     font-family: 'Oswald', sans-serif;
     display: inline-block;
     box-sizing: border-box;
     padding: 0 25px;
+    /*margin: 0 15px 15px 0;*/
     outline: none;
     border: none;
     border-radius: 4px;
@@ -43,15 +45,23 @@
     justify-content: space-around;
 }
 
+.input{
+    height: 30px;
+    border-radius: 5px;
+    margin: 0 15px 0 0;
+    width: 300px;
+}
+
 form {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 5px;
     margin-bottom: 8px;
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards;
-    color: white;
+    opacity: 0; /* Початкова прозорість - елемент буде невидимим */
+    animation: fadeIn 1s ease-in-out forwards; /* Встановлюємо анімацію fadeIn */
+
+    /* Додаткові стилі для компоненти, якщо потрібно */
 }
 
 @keyframes fadeIn {

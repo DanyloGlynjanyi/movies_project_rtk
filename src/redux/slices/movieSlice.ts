@@ -1,25 +1,24 @@
 import {createAsyncThunk, createSlice, isFulfilled, isPending} from "@reduxjs/toolkit";
 import {IData, IGenreList, IGenres, IInfo, IMovie} from "../../interfaces";
 import {AxiosError} from "axios";
-import {genresService, infoService, movieService, searchService} from "../../services";
-
+import {genresServise, infoServise, movieServise, searchServise} from "../../servises";
 
 
 interface IState {
     movie: IMovie[],
-    page:number,
+    page: number,
     genres: IGenres[],
-    info: IInfo | null,
-    themeSwitch: boolean,
+    info:IInfo,
+    themeSwitch:boolean,
     isLoading: boolean
 }
 
 const initialState: IState = {
     movie: [],
-    page:1,
+    page: null,
     genres: [],
-    info: null,
-    themeSwitch: false,
+    info:null,
+    themeSwitch:null,
     isLoading: false
 }
 
@@ -27,7 +26,7 @@ const getAll = createAsyncThunk<IData, { page: string }>(
     'movieSlice/getAll',
     async ({page}, {rejectWithValue}) => {
         try {
-            const {data} = await movieService.getAll(page);
+            const {data} = await movieServise.getAll(page);
             return data
         } catch (e) {
             const err = e as AxiosError
@@ -40,7 +39,7 @@ const getBySearch = createAsyncThunk<IData, { word: string, page: string }>(
     'movieSlice/getBySearch',
     async ({word, page}, {rejectWithValue}) => {
         try {
-            const {data} = await searchService.getBySearch(word, page)
+            const {data} = await searchServise.getBySearch(word, page)
             return data
         } catch (e) {
             const err = e as AxiosError
@@ -51,22 +50,22 @@ const getBySearch = createAsyncThunk<IData, { word: string, page: string }>(
 
 const getGenreList = createAsyncThunk<IGenreList>(
     'movieSlice/getGenreList',
-    async (_, {rejectWithValue}) => {
-        try {
-            const {data} = await genresService.getAll()
+    async (_,{rejectWithValue})=>{
+        try{
+            const {data} = await genresServise.getAll()
             return data
-        } catch (e) {
+        }catch (e) {
             const err = e as AxiosError
             return rejectWithValue(err.response?.data)
         }
     }
 )
 
-const getMovieByGenre = createAsyncThunk<IData, { page: string, with_genres: string }>(
+const getMovieByGenre = createAsyncThunk<IData, {page:string, with_genres:string}>(
     'movieSlice/getMovieByGenre',
-    async ({page, with_genres}, {rejectWithValue}) => {
+    async ({page, with_genres},{rejectWithValue}) =>{
         try {
-            const {data} = await genresService.getByIdMovie(page, with_genres)
+            const {data} = await genresServise.getByIdMovie(page, with_genres)
             return data
         } catch (e) {
             const err = e as AxiosError
@@ -75,11 +74,11 @@ const getMovieByGenre = createAsyncThunk<IData, { page: string, with_genres: str
     }
 )
 
-const getMovieInfo = createAsyncThunk<IInfo, { id: string }>(
+const getMovieInfo=createAsyncThunk<IInfo, {id:string}>(
     'movieSlice/getMovieInfo',
-    async ({id}, {rejectWithValue}) => {
+    async ({id}, {rejectWithValue})=>{
         try {
-            const {data} = await infoService.getById(id)
+            const {data}=await infoServise.getById(id)
             return data
         } catch (e) {
             const err = e as AxiosError
@@ -104,22 +103,22 @@ const movieSlice = createSlice({
                 state.movie = results
             })
             .addCase(getGenreList.fulfilled, (state, action) => {
-                const {genres} = action.payload
-                state.genres = genres
+                const {genres}=action.payload
+                state.genres=genres
             })
-            .addCase(getMovieByGenre.fulfilled, (state, action) => {
-                const {results} = action.payload
-                state.movie = results
+            .addCase(getMovieByGenre.fulfilled,(state, action) => {
+                const {results}=action.payload
+                state.movie=results
             })
-            .addCase(getMovieInfo.fulfilled, (state, action) => {
+            .addCase(getMovieInfo.fulfilled, (state, action) =>{
                 state.info = action.payload
+            } )
+            .addMatcher(isFulfilled(),(state, action)=>{
+                state.isLoading =false
             })
-            .addMatcher(isFulfilled(), (state, action) => {
-                state.isLoading = false
-            })
-            .addMatcher(isPending(), state => {
-                state.isLoading = true
-            })
+            .addMatcher(isPending(),state=>{
+                state.isLoading =true
+            } )
 })
 
 

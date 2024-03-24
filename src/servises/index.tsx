@@ -1,0 +1,5 @@
+export * from './axiosServise'
+export * from './genresServise'
+export * from './infoServise'
+export * from './movieServise'
+export * from './searchServise'
